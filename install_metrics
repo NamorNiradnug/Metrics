@@ -1,0 +1,18 @@
+#!/bin/bash
+if [[ $# == 1 ]];
+then
+cp README.cd README
+python3 -c "from setuptools import setup; setup(name='Metrics',
+      version='0.0.1a0',
+      description='Different math metrics.',
+      author='Roman Gundarin (NamorNiradnug)',
+      author_email='roma937a@mail.ru',
+      py_modules=['metrics'])" sdist
+rm README
+cd dist
+sudo -H pip install Metrics-$1.tar.gz
+cd ..
+else
+echo -n 'Incorrect number of arguments: '
+echo $#
+fi
