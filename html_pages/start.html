@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block body %}
+<h2>{{ the_title }}</h2>
+
+<form method='POST' action='/metrics'>
+<table>
+    <p>Use this form to calculate distance in different metrics:</p>
+    <tr><td>First object:</td><td><input name='object1' type='TEXT' width=60></td></tr>
+    <tr><td>Second object:</td><td><input name='object2' type='TEXT' width=60></td></tr>
+    <tr><td>Metric type:</td><td><input name='metric' type='TEXT' width=60></td></tr>
+</table>
+<p><input value='Calculate' type='SUMBIT'></p>
+<p>Distance={{ distance }}</p>
+</form>
+{% endblock %}
