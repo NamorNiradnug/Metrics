@@ -1,7 +1,7 @@
 #!/bin/bash
 if [[ $# == 1 ]];
 then
-cp README.cd README
+cp README.md README
 python3 -c "from setuptools import setup; setup(name='Metrics',
       version='0.0.1a0',
       description='Different math metrics.',
@@ -10,8 +10,9 @@ python3 -c "from setuptools import setup; setup(name='Metrics',
       py_modules=['metrics'])" sdist
 rm README
 cd dist
-sudo -H pip install Metrics-$1.tar.gz
+sudo -H python3 -m pip install Metrics-$1.tar.gz
 cd ..
+rm -r dist Metrics.egg-info
 else
 echo -n 'Incorrect number of arguments: '
 echo $#
